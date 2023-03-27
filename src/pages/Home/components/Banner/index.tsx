@@ -22,7 +22,7 @@ export function Banner() {
             <div className='icon-bg gray'>
               <Package weight='fill' color='white'/>
             </div>
-            <span>Emabalagem mantém o café intacto</span>
+            <span>Embalagem mantém o café intacto</span>
           </div>
           <div>
             <div className='icon-bg yellow'>
