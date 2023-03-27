@@ -1,3 +1,4 @@
+import { Shelf } from '../../components/Shelf'
 import { Banner } from './components/Banner'
 import { HomeContainer } from './styles'
 
