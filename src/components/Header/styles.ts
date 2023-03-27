@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
 
+  /* width: 1120px; */
   margin-bottom: 2rem;
   
   & > div {
@@ -18,6 +19,7 @@ export const HeaderContainer = styled.header`
       background-color: ${(props) => props.theme['purple-300']};
       color: ${(props) => props.theme['purple-700']};
       border-radius: 6px;
+      padding: 8px 10px 
     }
     
   }
