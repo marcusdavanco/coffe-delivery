@@ -1,4 +1,5 @@
-import { AmounSelector } from "./components/AmountSelector";
+import { AmountSelector } from "./components/AmountSelector";
+import { BuyBtn } from "./components/BuyBtn";
 import { ProductCardContainer } from "./styles";
 
 interface ProductCardProps {
@@ -22,8 +23,12 @@ export function ProductCard({ image, categories, name, description, price } : Pr
       <p className="title">{name}</p>
       <p className="description">{description}</p>
       <div className='addToCart'>
-        <span>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(price)}</span>        
-        <AmounSelector />
+        <div className='price'>
+          <span className='symbol'>{`R$ `}</span>
+          <span className='value'>{new Intl.NumberFormat('pt-BR', {minimumFractionDigits: 2}).format(price)}</span>        
+        </div>
+        <AmountSelector />
+        <BuyBtn />
       </div>
     </ProductCardContainer>
   )

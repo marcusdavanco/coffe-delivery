@@ -33,10 +33,7 @@ export const ProductCardContainer = styled.article`
       font-size: ${(props) => props.theme['text-1']};
       font-weight: 700;
       border-radius: 100px;
-
-    }
-
-    
+    }    
   }
 
   .title {
@@ -51,7 +48,32 @@ export const ProductCardContainer = styled.article`
     text-align: center;
     margin-bottom: 2rem;
     font-weight: 400;
-    font-size: font-size: ${(props) => props.theme['text-3']};
+    font-size: ${(props) => props.theme['text-3']};
     color: ${(props) => props.theme['base-label']};
+    min-height: 2rem;
+  }
+
+  .addToCart {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .price {
+    align-items: center;
+    display: flex;
+    margin-right: 1rem;
+
+    .symbol {
+      font-size: ${(props) => props.theme['text-3']};
+      line-height: 18px;
+      margin-right: 0.25rem;
+    }
+
+    .value {
+      font-family: 'Baloo 2';
+      font-weight: 800;
+      font-size: ${(props) => props.theme['text-7']};
+      line-height: 32px;
+    }
   }
 `

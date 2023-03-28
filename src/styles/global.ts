@@ -22,5 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: ${(props) => props.theme['text-4']};
   }
+
+  
 }
 `
