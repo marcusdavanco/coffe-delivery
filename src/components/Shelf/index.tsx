@@ -13,7 +13,7 @@ import cubano from '../../assets/cubano.png'
 import havaiano from '../../assets/havaiano.png'
 import arabe from '../../assets/arabe.png'
 import irlandes from '../../assets/irlandes.png'
-import { ShelfContainer } from "./styles"
+import { ShelfContainer, Wrapper } from "./styles"
 
 
 export function Shelf() {
@@ -121,6 +121,8 @@ export function Shelf() {
 
   return (     
     <ShelfContainer>
+      <h2>Nossos cafés</h2>
+      <Wrapper>
       {
         productList.map(product => <ProductCard 
           key={product.id} 
@@ -132,6 +134,7 @@ export function Shelf() {
         />
         )
       }  
+      </Wrapper>
     </ShelfContainer>
   )
 }

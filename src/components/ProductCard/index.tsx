@@ -1,4 +1,4 @@
-import { AmountSelector } from "./components/AmountSelector";
+import { AmountSelector } from "../../components/AmountSelector";
 import { BuyBtn } from "./components/BuyBtn";
 import { ProductCardContainer } from "./styles";
 

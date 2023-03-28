@@ -1,4 +1,5 @@
 import { MapPin } from 'phosphor-react'
+import { Link } from 'react-router-dom'
 import { useTheme } from 'styled-components'
 import coffeDeliveryLogo from '../../assets/Logo.svg'
 import { CartButton } from './components/CartButton'
@@ -11,7 +12,7 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <img src={coffeDeliveryLogo} />
+      <Link to='/'><img src={coffeDeliveryLogo} /></Link>
       <div>
           <div>
             <MapPin color={theme['purple-500']} weight='fill'/>
