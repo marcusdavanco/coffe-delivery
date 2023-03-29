@@ -1,6 +1,13 @@
-import { CurrencyDollar, MapPinLine } from "phosphor-react";
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from "phosphor-react";
 import { useTheme } from "styled-components";
 import { AmountSelector } from "../../components/AmountSelector";
+import { Button } from "../../components/Button";
 import { CheckoutContainer } from "./styles";
 
 export function Checkout() {
@@ -9,7 +16,7 @@ export function Checkout() {
   return (
     <CheckoutContainer>
       <form>
-        <div>
+        <div className="delivery-options">
           <p className="title">Complete seu pedido</p>
           <div className="card address">
             <div className="subtitle">
@@ -47,10 +54,22 @@ export function Checkout() {
                 </span>
               </div>
             </div>
-            <div>
-              <button>Cartão de crédito</button>
-              <button>Cartão de débito</button>
-              <button>Dinheiro</button>
+            <div className="buttonGroup">
+              <Button
+                icon={<CreditCard size={16} color={theme["purple-500"]} />}
+                description="cartão de crédito"
+                type="button"
+              />
+              <Button
+                icon={<Bank size={16} color={theme["purple-500"]} />}
+                description="cartão de débito"
+                type="button"
+              />
+              <Button
+                icon={<Money size={16} color={theme["purple-500"]} />}
+                description="dinheiro"
+                type="button"
+              />
             </div>
           </div>
         </div>

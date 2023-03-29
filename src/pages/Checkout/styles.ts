@@ -6,6 +6,10 @@ export const CheckoutContainer = styled.main`
     justify-content: space-between;
   }
 
+  .delivery-options {
+    max-width: 40rem;
+  }
+
   .card {
     background-color: ${(props) => props.theme["base-card"]};
     padding: 2.5rem;
@@ -91,5 +95,9 @@ export const CheckoutContainer = styled.main`
         }
       }
     }
+  }
+  .buttonGroup {
+    display: flex;
+    gap: 0.75rem;
   }
 `;
