@@ -153,6 +153,7 @@ export const CheckoutContainer = styled.main`
       background: ${(props) => props.theme["yellow-500"]};
       color: ${(props) => props.theme["white"]};
       border-radius: 6px;
+      cursor: pointer;
     }
   }
 
