@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const ButtonContainer = styled.button`
+interface ButtonContainerProps {
+  size: "md" | "sm";
+}
+
+export const ButtonContainer = styled.button<ButtonContainerProps>`
   background-color: ${(props) => props.theme["base-button"]};
   cursor: pointer;
   display: flex;
@@ -10,7 +14,8 @@ export const ButtonContainer = styled.button`
   color: ${(props) => props.theme["base-text"]};
   font-size: ${(props) => props.theme["text-2"]};
   gap: 0.75rem;
-  padding: 1rem;
+  padding: ${(props) => (props.size === "md" ? "1rem" : "0.5rem")};
+
   text-transform: uppercase;
   width: 100%;
   white-space: nowrap;

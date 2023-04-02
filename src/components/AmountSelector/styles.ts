@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const AmountSelectorContainer = styled.div`
-  background-color: ${(props) => props.theme['base-button']};
+interface AmountSelectorContainerProps {
+  size: "md" | "sm";
+}
+
+export const AmountSelectorContainer = styled.div<AmountSelectorContainerProps>`
+  background-color: ${(props) => props.theme["base-button"]};
   position: relative;
   border-radius: 6px;
   display: flex;
@@ -12,19 +16,18 @@ export const AmountSelectorContainer = styled.div`
     border: none;
     display: flex;
     justify-content: center;
-    height: 2.375rem;
-    
+    height: ${(props) => (props.size === "md" ? "2.375rem" : "unset")};
 
     text-align: center;
-    width: 100%;    
+    width: 100%;
 
     -moz-appearance: textfield;
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
-    }        
-  } 
+    }
+  }
 
   button {
     position: absolute;
@@ -34,12 +37,12 @@ export const AmountSelectorContainer = styled.div`
 
     &.minus {
       left: 0.5rem;
-      top: 0.75rem;
+      top: ${(props) => (props.size === "md" ? "0.75rem" : "0.5rem")};
     }
 
     &.plus {
       right: 0.5rem;
-      top: 0.75rem;
-    } 
-  }  
-`
+      top: ${(props) => (props.size === "md" ? "0.75rem" : "0.5rem")};
+    }
+  }
+`;
