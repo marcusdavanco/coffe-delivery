@@ -154,6 +154,11 @@ export const CheckoutContainer = styled.main`
       color: ${(props) => props.theme["white"]};
       border-radius: 6px;
       cursor: pointer;
+
+      &:hover {
+        background: ${(props) => props.theme["yellow-700"]};
+        transition: background-color 0.2s;
+      }
     }
   }
 

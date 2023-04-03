@@ -20,6 +20,15 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   width: 100%;
   white-space: nowrap;
 
+  &:hover {
+    background-color: ${(props) => props.theme["base-hover"]};
+    transition: background-color 0.2s;
+  }
+
+  &::selection {
+    background-color: ${(props) => props.theme["purple-300"]};
+  }
+
   span {
     display: flex;
     height: 1rem;

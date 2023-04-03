@@ -4,13 +4,16 @@ export const BuyBtnContainer = styled.button`
   align-items: center;
   border: none;
   cursor: pointer;
-  display: flex;  
+  display: flex;
   height: 2.375rem;
   justify-content: center;
   width: 2.375rem;
   border-radius: 6px;
 
+  background-color: ${(props) => props.theme["purple-700"]};
 
-  background-color: ${(props) => props.theme["purple-700"]}
-  
-`
+  &:hover {
+    background-color: ${(props) => props.theme["purple-500"]};
+    transition: background-color 0.2s;
+  }
+`;

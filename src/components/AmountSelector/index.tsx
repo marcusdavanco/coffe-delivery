@@ -3,7 +3,7 @@ import { useTheme } from "styled-components";
 import { AmountSelectorContainer } from "./styles";
 
 interface AmountSelectorProps {
-  size: "md" | "sm";
+  size?: "md" | "sm";
 }
 
 export function AmountSelector({ size = "md" }: AmountSelectorProps) {

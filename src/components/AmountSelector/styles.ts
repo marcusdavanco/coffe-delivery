@@ -38,11 +38,21 @@ export const AmountSelectorContainer = styled.div<AmountSelectorContainerProps>`
     &.minus {
       left: 0.5rem;
       top: ${(props) => (props.size === "md" ? "0.75rem" : "0.5rem")};
+
+      &:hover {
+        filter: brightness(0.2);
+        transition: filter 0.2s;
+      }
     }
 
     &.plus {
       right: 0.5rem;
       top: ${(props) => (props.size === "md" ? "0.75rem" : "0.5rem")};
+    }
+
+    &:hover {
+      filter: brightness(0.2);
+      transition: filter 0.2s;
     }
   }
 `;

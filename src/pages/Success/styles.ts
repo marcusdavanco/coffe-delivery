@@ -38,7 +38,7 @@ export const SuccessContainer = styled.main`
       border-radius: 6px 36px;
       width: 32rem;
       position: relative;
-      border: 1px solid ${(props) => props.theme["yellow-500"]};
+      border: 1px solid ${(props) => props.theme["purple-500"]};
 
       & > div {
         display: flex;
