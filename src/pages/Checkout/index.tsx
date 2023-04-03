@@ -4,14 +4,11 @@ import {
   CurrencyDollar,
   MapPinLine,
   Money,
-  Trash,
 } from "phosphor-react";
 import { useTheme } from "styled-components";
-import { AmountSelector } from "../../components/AmountSelector";
 import { Button } from "../../components/Button";
 import { CheckoutContainer } from "./styles";
-import expresso from "../../assets/expresso.png";
-import latte from "../../assets/latte.png";
+import { ProductRow } from "../../components/ProductRow";
 
 export function Checkout() {
   const theme = useTheme();
@@ -79,38 +76,8 @@ export function Checkout() {
         <div>
           <p className="title">Cafés selecionados</p>
           <div className="card cart">
-            <div className="product-row">
-              <img src={expresso} alt="coffe" />
-              <div>
-                <p>Expreso Tradicional</p>
-                <div>
-                  <AmountSelector size="sm" />
-                  <Button
-                    icon={<Trash size={16} color={theme["purple-500"]} />}
-                    description="Remover"
-                    type="button"
-                    size="sm"
-                  />
-                </div>
-              </div>
-              <span>R$ 9,90</span>
-            </div>
-            <div className="product-row">
-              <img src={latte} alt="coffe" />
-              <div>
-                <p>Latte</p>
-                <div>
-                  <AmountSelector size="sm" />
-                  <Button
-                    icon={<Trash size={16} color={theme["purple-500"]} />}
-                    description="Remover"
-                    type="button"
-                    size="sm"
-                  />
-                </div>
-              </div>
-              <span>R$ 19,80</span>
-            </div>
+            <ProductRow />
+            <ProductRow />
 
             <div className="summary">
               <table>

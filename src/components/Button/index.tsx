@@ -4,7 +4,7 @@ import { ButtonContainer } from "./styles";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: React.ReactNode;
   description: string;
-  size: "md" | "sm";
+  size?: "md" | "sm";
 }
 
 export function Button({
