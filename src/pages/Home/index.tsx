@@ -1,6 +1,6 @@
-import { Shelf } from '../../components/Shelf'
-import { Banner } from './components/Banner'
-import { HomeContainer } from './styles'
+import { Shelf } from "../../components/Shelf";
+import { Banner } from "./components/Banner";
+import { HomeContainer } from "./styles";
 
 export function Home() {
   return (
@@ -8,5 +8,5 @@ export function Home() {
       <Banner />
       <Shelf />
     </HomeContainer>
-  )
+  );
 }

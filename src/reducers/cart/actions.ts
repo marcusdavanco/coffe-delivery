@@ -16,7 +16,7 @@ export function addProductAction(newProduct: Product) {
   };
 }
 
-export function removeProductAction(id: number) {
+export function removeProductAction(id: string) {
   return {
     type: ActionTypes.ADD_PRODUCT,
     payload: {

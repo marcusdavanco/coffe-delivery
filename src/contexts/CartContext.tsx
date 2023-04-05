@@ -1,8 +1,14 @@
 import { createContext, ReactNode, useEffect, useReducer } from "react";
+import {
+  addProductAction,
+  removeProductAction,
+} from "../reducers/cart/actions";
 import { cartReducer, Product } from "../reducers/cart/reducer";
 
 interface CartContextType {
   products: Product[];
+  addToCart: (data: Product) => void;
+  removeFromCart: (id: string) => void;
 }
 
 interface CartContextProviderProps {
@@ -36,4 +42,24 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     const stateJSON = JSON.stringify(cartState);
     localStorage.setItem("@coffe-delivery:cart-state-1.0.0", stateJSON);
   }, [cartState]);
+
+  function addToCart(data: Product) {
+    dispatch(addProductAction(data));
+  }
+
+  function removeFromCart(id: string) {
+    dispatch(removeProductAction(id));
+  }
+
+  return (
+    <CartContext.Provider
+      value={{
+        products,
+        addToCart,
+        removeFromCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 }

@@ -1,11 +1,13 @@
 import { ShoppingCart } from "phosphor-react";
+import { ButtonHTMLAttributes } from "react";
 import { BuyBtnContainer } from "./styles";
 
-export function BuyBtn() {
+interface BuyBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
+export function BuyBtn(props: BuyBtnProps) {
   return (
-    <BuyBtnContainer>
-      <ShoppingCart weight='fill' color={'white'} size={22}/>
+    <BuyBtnContainer {...props}>
+      <ShoppingCart weight="fill" color={"white"} size={22} />
     </BuyBtnContainer>
-  )
+  );
 }
