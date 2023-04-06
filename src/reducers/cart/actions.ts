@@ -2,6 +2,7 @@ import { Product } from "./reducer";
 
 export enum ActionTypes {
   ADD_PRODUCT = "ADD_PRODUCT",
+  // TODO - UPDATE_PRODUCT = "UPDATE_PRODUCT",
   REMOVE_PRODUCT = "REMOVE_PRODUCT",
 }
 
