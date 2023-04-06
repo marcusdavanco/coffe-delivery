@@ -1,7 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import { AmountSelector } from "../../components/AmountSelector";
 import { CartContext } from "../../contexts/CartContext";
-import { Product } from "../../reducers/cart/reducer";
 import { BuyBtn } from "./components/BuyBtn";
 import { ProductCardContainer } from "./styles";
 
@@ -23,7 +22,6 @@ export function ProductCard({
   price,
 }: ProductCardProps) {
   const { addToCart } = useContext(CartContext);
-  const [productAmount, setProductAmount] = useState(1);
   const amountRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -47,7 +45,7 @@ export function ProductCard({
             }).format(price)}
           </span>
         </div>
-        <AmountSelector />
+        <AmountSelector ref={amountRef} />
         <BuyBtn
           onClick={() =>
             addToCart({
@@ -57,7 +55,7 @@ export function ProductCard({
               name,
               description,
               price,
-              amount: 1,
+              amount: +amountRef.current!.value,
             })
           }
         />

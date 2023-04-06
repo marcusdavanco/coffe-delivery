@@ -23,7 +23,11 @@ export const ProductRow = ({ product }: ProductRowProps) => {
       <div>
         <p>{product.name}</p>
         <div>
-          <AmountSelector size="sm" />
+          <AmountSelector
+            size="sm"
+            initialValue={product.amount}
+            disabled={true}
+          />
           <Button
             icon={<Trash size={16} color={theme["purple-500"]} />}
             description="Remover"
