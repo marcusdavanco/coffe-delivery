@@ -9,16 +9,14 @@ export function addProductAction(newProduct: Product) {
   return {
     type: ActionTypes.ADD_PRODUCT,
     payload: {
-      product: {
-        newProduct,
-      },
+      product: newProduct,
     },
   };
 }
 
 export function removeProductAction(id: string) {
   return {
-    type: ActionTypes.ADD_PRODUCT,
+    type: ActionTypes.REMOVE_PRODUCT,
     payload: {
       id,
     },

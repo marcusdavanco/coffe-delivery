@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { AmountSelector } from "../../components/AmountSelector";
 import { CartContext } from "../../contexts/CartContext";
 import { Product } from "../../reducers/cart/reducer";
@@ -23,6 +23,8 @@ export function ProductCard({
   price,
 }: ProductCardProps) {
   const { addToCart } = useContext(CartContext);
+  const [productAmount, setProductAmount] = useState(1);
+  const amountRef = useRef<HTMLInputElement>(null);
 
   return (
     <ProductCardContainer>

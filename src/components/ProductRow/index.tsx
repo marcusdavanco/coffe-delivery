@@ -1,18 +1,27 @@
 import { ProductRowContainer } from "./styles";
-import expresso from "../../assets/expresso.png";
 import { AmountSelector } from "../AmountSelector";
 import { Button } from "../Button";
 import { Trash } from "phosphor-react";
 import { useTheme } from "styled-components";
+import { Product } from "../../reducers/cart/reducer";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
-export const ProductRow = () => {
+interface ProductRowProps {
+  product: Product;
+}
+
+export const ProductRow = ({ product }: ProductRowProps) => {
+  const { products, removeFromCart } = useContext(CartContext);
   const theme = useTheme();
+
+  console.log(products);
 
   return (
     <ProductRowContainer>
-      <img src={expresso} alt="coffe" />
+      <img src={product.image} alt="coffe" />
       <div>
-        <p>Expreso Tradicional</p>
+        <p>{product.name}</p>
         <div>
           <AmountSelector size="sm" />
           <Button
@@ -20,10 +29,16 @@ export const ProductRow = () => {
             description="Remover"
             type="button"
             size="sm"
+            onClick={() => removeFromCart(product.id)}
           />
         </div>
       </div>
-      <span>R$ 9,90</span>
+      <span>
+        {new Intl.NumberFormat("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }).format(product.price)}
+      </span>
     </ProductRowContainer>
   );
 };

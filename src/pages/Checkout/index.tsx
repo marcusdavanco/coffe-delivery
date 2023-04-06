@@ -9,8 +9,11 @@ import { useTheme } from "styled-components";
 import { Button } from "../../components/Button";
 import { CheckoutContainer } from "./styles";
 import { ProductRow } from "../../components/ProductRow";
+import { CartContext } from "../../contexts/CartContext";
+import { useContext } from "react";
 
 export function Checkout() {
+  const { products } = useContext(CartContext);
   const theme = useTheme();
 
   return (
@@ -76,8 +79,9 @@ export function Checkout() {
         <div>
           <p className="title">Cafés selecionados</p>
           <div className="card cart">
-            <ProductRow />
-            <ProductRow />
+            {products.map((product) => (
+              <ProductRow product={product} />
+            ))}
 
             <div className="summary">
               <table>
