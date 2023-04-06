@@ -42,6 +42,8 @@ export function ProductCard({
           <span className="value">
             {new Intl.NumberFormat("pt-BR", {
               minimumFractionDigits: 2,
+              currency: "BRL",
+              currencyDisplay: "symbol",
             }).format(price)}
           </span>
         </div>

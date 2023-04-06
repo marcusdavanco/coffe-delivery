@@ -87,15 +87,47 @@ export function Checkout() {
               <table>
                 <tr>
                   <th>Total de itens</th>
-                  <td>R$ 29,70</td>
+                  <td>
+                    {new Intl.NumberFormat("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                      currencyDisplay: "symbol",
+                      minimumFractionDigits: 2,
+                    }).format(
+                      products.reduce((acc, product) => acc + product.price, 0)
+                    )}
+                  </td>
                 </tr>
                 <tr>
                   <th>Entrega</th>
-                  <td>R$ 3,50</td>
+                  <td>
+                    {new Intl.NumberFormat("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                      currencyDisplay: "symbol",
+                      minimumFractionDigits: 2,
+                    }).format(products.length > 1 ? 3.5 : 0)}
+                  </td>
                 </tr>
                 <tr>
                   <th>Total</th>
-                  <td>R$ 33,20</td>
+                  <td>
+                    {new Intl.NumberFormat("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                      currencyDisplay: "symbol",
+                      minimumFractionDigits: 2,
+                    }).format(
+                      products.reduce(
+                        (acc, product) => acc + product.price,
+                        0
+                      ) +
+                        products.length >
+                        0
+                        ? 3.5
+                        : 0
+                    )}
+                  </td>
                 </tr>
               </table>
             </div>
