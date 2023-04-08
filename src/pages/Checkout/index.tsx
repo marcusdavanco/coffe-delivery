@@ -80,7 +80,7 @@ export function Checkout() {
           <p className="title">Cafés selecionados</p>
           <div className="card cart">
             {products.map((product) => (
-              <ProductRow product={product} />
+              <ProductRow key={product.id} product={product} />
             ))}
 
             <div className="summary">

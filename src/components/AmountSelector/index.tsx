@@ -1,5 +1,5 @@
 import { Minus, Plus } from "phosphor-react";
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, FormEvent, ChangeEvent } from "react";
 import { useTheme } from "styled-components";
 import { AmountSelectorContainer } from "./styles";
 
@@ -16,6 +16,11 @@ export const AmountSelector = forwardRef(
   ) => {
     const [value, setValue] = useState(initialValue);
     const theme = useTheme();
+
+    function handleChange(event: ChangeEvent<HTMLInputElement>) {
+      setValue(+event.target.value);
+    }
+
     return (
       <AmountSelectorContainer size={size}>
         <button
@@ -27,7 +32,13 @@ export const AmountSelector = forwardRef(
         >
           <Minus size={14} color={theme["purple-500"]} />
         </button>
-        <input ref={ref} type="number" min={1} value={value} />
+        <input
+          ref={ref}
+          type="number"
+          min={1}
+          value={value}
+          onChange={handleChange}
+        />
         <button
           className="plus"
           onClick={() => {

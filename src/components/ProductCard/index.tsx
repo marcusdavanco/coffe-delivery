@@ -28,8 +28,8 @@ export function ProductCard({
     <ProductCardContainer>
       <img src={image} alt={image} />
       <div className="categories">
-        {categories.map((category) => (
-          <span>{category}</span>
+        {categories.map((category, index) => (
+          <span key={index}>{category}</span>
         ))}
       </div>
       <p className="title">{name}</p>
