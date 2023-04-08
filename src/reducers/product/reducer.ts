@@ -11,11 +11,11 @@ export interface Product {
   amount: number;
 }
 
-export interface CartState {
+export interface ProductState {
   products: Product[];
 }
 
-export function cartReducer(state: CartState, action: any) {
+export function productReducer(state: ProductState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_PRODUCT:
       return produce(state, (draft) => {

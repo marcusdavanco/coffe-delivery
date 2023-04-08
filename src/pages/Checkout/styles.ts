@@ -129,11 +129,14 @@ export const CheckoutContainer = styled.main`
 
   .summary {
     table {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      row-gap: 1.5rem;
       width: 100%;
+
+      tbody {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        row-gap: 1.5rem;
+      }
 
       tr {
         display: flex;

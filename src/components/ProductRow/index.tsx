@@ -3,7 +3,7 @@ import { AmountSelector } from "../AmountSelector";
 import { Button } from "../Button";
 import { Trash } from "phosphor-react";
 import { useTheme } from "styled-components";
-import { Product } from "../../reducers/cart/reducer";
+import { Product } from "../../reducers/product/reducer";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 

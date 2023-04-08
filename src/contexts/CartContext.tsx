@@ -2,8 +2,8 @@ import { createContext, ReactNode, useEffect, useReducer } from "react";
 import {
   addProductAction,
   removeProductAction,
-} from "../reducers/cart/actions";
-import { cartReducer, Product } from "../reducers/cart/reducer";
+} from "../reducers/product/actions";
+import { productReducer, Product } from "../reducers/product/reducer";
 
 interface CartContextType {
   products: Product[];
@@ -19,7 +19,7 @@ export const CartContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [cartState, dispatch] = useReducer(
-    cartReducer,
+    productReducer,
     {
       products: [],
     },
