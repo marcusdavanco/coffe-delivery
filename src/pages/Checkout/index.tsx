@@ -96,7 +96,8 @@ export function Checkout() {
                         minimumFractionDigits: 2,
                       }).format(
                         products.reduce(
-                          (acc, product) => acc + product.price,
+                          (acc, product) =>
+                            acc + product.price * product.amount,
                           0
                         )
                       )}
@@ -110,7 +111,7 @@ export function Checkout() {
                         currency: "BRL",
                         currencyDisplay: "symbol",
                         minimumFractionDigits: 2,
-                      }).format(products.length > 1 ? 3.5 : 0)}
+                      }).format(products.length > 0 ? 3.5 : 0)}
                     </td>
                   </tr>
                   <tr>
@@ -123,13 +124,10 @@ export function Checkout() {
                         minimumFractionDigits: 2,
                       }).format(
                         products.reduce(
-                          (acc, product) => acc + product.price,
-                          0
-                        ) +
-                          products.length >
-                          0
-                          ? 3.5
-                          : 0
+                          (acc, product) =>
+                            acc + product.price * product.amount,
+                          products.length > 0 ? 3.5 : 0
+                        )
                       )}
                     </td>
                   </tr>
