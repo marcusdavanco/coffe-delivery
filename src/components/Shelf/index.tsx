@@ -18,10 +18,6 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 export function Shelf() {
-  const { products } = useContext(CartContext);
-
-  console.log("PRODUCTS", products);
-
   // TODO - Replace with MSW / MirageJS
   const productList = [
     {

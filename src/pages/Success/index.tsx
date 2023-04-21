@@ -10,7 +10,7 @@ export function Success() {
           <h2>Uhu! Pedido confirmado</h2>
           <span>Agora é só aguardar que logo o café chegará até você</span>
         </div>
-        <div className="card">
+        <section>
           <div>
             <div className="circle purple">
               <MapPinLine color="white" weight="fill" size="16" />
@@ -40,7 +40,7 @@ export function Success() {
               <span>Cartão de Crédito</span>
             </div>
           </div>
-        </div>
+        </section>
       </div>
       <img src={delivery} alt="entregador com moto" />
     </SuccessContainer>

@@ -1,11 +1,11 @@
 import { ProductRowContainer } from "./styles";
-import { AmountSelector } from "../AmountSelector";
-import { Button } from "../Button";
 import { Trash } from "phosphor-react";
 import { useTheme } from "styled-components";
-import { Product } from "../../reducers/product/reducer";
 import { useContext, useEffect, useRef } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import { CartContext } from "../../../../../../contexts/CartContext";
+import { AmountSelector } from "../../../../../../components/AmountSelector";
+import { Button } from "../../../../../../components/Button";
+import { Product } from "../../../../../../reducers/product/reducer";
 
 interface ProductRowProps {
   product: Product;
@@ -19,8 +19,6 @@ export const ProductRow = ({ product }: ProductRowProps) => {
   useEffect(() => {
     updateCart(product.id, +amountRef.current!.value);
   }, [amountRef.current?.value]);
-
-  console.log(products);
 
   return (
     <ProductRowContainer>
