@@ -6,14 +6,10 @@ import { AmountSelectorContainer } from "./styles";
 interface AmountSelectorProps {
   size?: "md" | "sm";
   initialValue?: number;
-  disabled?: boolean;
 }
 
 export const AmountSelector = forwardRef(
-  (
-    { size = "md", initialValue = 1, disabled }: AmountSelectorProps,
-    ref: any
-  ) => {
+  ({ size = "md", initialValue = 1 }: AmountSelectorProps, ref: any) => {
     const [value, setValue] = useState(initialValue);
     const theme = useTheme();
 
@@ -24,11 +20,11 @@ export const AmountSelector = forwardRef(
     return (
       <AmountSelectorContainer size={size}>
         <button
+          type="button"
           className="minus"
           onClick={() => {
             value - 1 > 0 && setValue(value - 1);
           }}
-          disabled={disabled}
         >
           <Minus size={14} color={theme["purple-500"]} />
         </button>
@@ -40,11 +36,11 @@ export const AmountSelector = forwardRef(
           onChange={handleChange}
         />
         <button
+          type="button"
           className="plus"
           onClick={() => {
             setValue(value + 1);
           }}
-          disabled={disabled}
         >
           <Plus size={14} color={theme["purple-500"]} />
         </button>

@@ -16,16 +16,21 @@ export interface ProductState {
 }
 
 export function productReducer(state: ProductState, action: any) {
+  const productIndex = state.products.findIndex((product) => {
+    return product.id === action.payload.id;
+  });
+
   switch (action.type) {
     case ActionTypes.ADD_PRODUCT:
       return produce(state, (draft) => {
         draft.products.push(action.payload.product);
       });
-    case ActionTypes.REMOVE_PRODUCT:
-      const productIndex = state.products.findIndex((product) => {
-        return product.id === action.payload.id;
+    case ActionTypes.UPDATE_PRODUCT:
+      return produce(state, (draft) => {
+        draft.products[productIndex].amount = action.payload.amount;
       });
 
+    case ActionTypes.REMOVE_PRODUCT:
       if (productIndex < 0) {
         return state;
       }

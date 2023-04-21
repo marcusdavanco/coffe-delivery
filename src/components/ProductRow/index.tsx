@@ -4,7 +4,7 @@ import { Button } from "../Button";
 import { Trash } from "phosphor-react";
 import { useTheme } from "styled-components";
 import { Product } from "../../reducers/product/reducer";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 interface ProductRowProps {
@@ -12,8 +12,13 @@ interface ProductRowProps {
 }
 
 export const ProductRow = ({ product }: ProductRowProps) => {
-  const { products, removeFromCart } = useContext(CartContext);
+  const { products, removeFromCart, updateCart } = useContext(CartContext);
+  const amountRef = useRef<HTMLInputElement>(null);
   const theme = useTheme();
+
+  useEffect(() => {
+    updateCart(product.id, +amountRef.current!.value);
+  }, [amountRef.current?.value]);
 
   console.log(products);
 
@@ -26,7 +31,7 @@ export const ProductRow = ({ product }: ProductRowProps) => {
           <AmountSelector
             size="sm"
             initialValue={product.amount}
-            disabled={true}
+            ref={amountRef}
           />
           <Button
             icon={<Trash size={16} color={theme["purple-500"]} />}
