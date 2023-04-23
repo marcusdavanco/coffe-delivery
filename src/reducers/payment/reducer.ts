@@ -14,13 +14,7 @@ export function paymentMethodReducer(state: PaymentMethodState, action: any) {
   switch (action.type) {
     case ActionTypes.SET_PAYMENT_METHOD:
       return {
-        ...state,
         paymentMethod: action.payload.paymentMethod,
-      };
-    case ActionTypes.CLEAR_PAYMENT_METHOD:
-      return {
-        ...state,
-        paymentMethod: "",
       };
     default:
       return state;
