@@ -12,13 +12,13 @@ interface ProductRowProps {
 }
 
 export const ProductRow = ({ product }: ProductRowProps) => {
-  const { products, removeFromCart, updateCart } = useContext(CartContext);
+  const { removeFromCart, updateCart } = useContext(CartContext);
   const amountRef = useRef<HTMLInputElement>(null);
   const theme = useTheme();
 
-  useEffect(() => {
-    updateCart(product.id, +amountRef.current!.value);
-  }, [amountRef.current?.value]);
+  const handleUpdateAmount = (value: number) => {
+    updateCart(product.id, value);
+  };
 
   return (
     <ProductRowContainer>
@@ -30,6 +30,7 @@ export const ProductRow = ({ product }: ProductRowProps) => {
             size="sm"
             initialValue={product.amount}
             ref={amountRef}
+            handleUpdateAmount={handleUpdateAmount}
           />
           <Button
             icon={<Trash size={16} color={theme["purple-500"]} />}

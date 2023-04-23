@@ -1,21 +1,29 @@
 import { Minus, Plus } from "phosphor-react";
-import { useState, forwardRef, FormEvent, ChangeEvent } from "react";
+import { useState, forwardRef, ChangeEvent, useEffect } from "react";
 import { useTheme } from "styled-components";
 import { AmountSelectorContainer } from "./styles";
 
 interface AmountSelectorProps {
   size?: "md" | "sm";
   initialValue?: number;
+  handleUpdateAmount?: (value: number) => void;
 }
 
 export const AmountSelector = forwardRef(
-  ({ size = "md", initialValue = 1 }: AmountSelectorProps, ref: any) => {
+  (
+    { size = "md", initialValue = 1, handleUpdateAmount }: AmountSelectorProps,
+    ref: any
+  ) => {
     const [value, setValue] = useState(initialValue);
     const theme = useTheme();
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
       setValue(+event.target.value);
     }
+
+    useEffect(() => {
+      handleUpdateAmount && handleUpdateAmount(+value);
+    }, [value]);
 
     return (
       <AmountSelectorContainer size={size}>

@@ -5,6 +5,8 @@ import {
   updateProductAction,
 } from "../reducers/product/actions";
 import { productReducer, Product } from "../reducers/product/reducer";
+import { PaymentOptions } from "../reducers/payment/reducer";
+import { rootInitialState, rootReducer } from "../reducers";
 
 interface CartContextType {
   products: Product[];
@@ -21,10 +23,8 @@ export const CartContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [cartState, dispatch] = useReducer(
-    productReducer,
-    {
-      products: [],
-    },
+    rootReducer,
+    rootInitialState,
     (initialState) => {
       const storedStateAsJSON = localStorage.getItem(
         "@coffe-delivery:cart-state-1.0.0"
@@ -38,7 +38,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
   );
 
-  const { products } = cartState;
+  const { products, address, paymentMethod } = cartState;
 
   useEffect(() => {
     const stateJSON = JSON.stringify(cartState);
