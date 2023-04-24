@@ -8,6 +8,11 @@ import { productReducer, Product } from "../reducers/product/reducer";
 import { PaymentOptions } from "../reducers/payment/reducer";
 import { rootInitialState, rootReducer } from "../reducers";
 import { setPaymentMethodAction } from "../reducers/payment/actions";
+import { Address } from "../reducers/address/reducer";
+import {
+  clearAddressAction,
+  setAddressAction,
+} from "../reducers/address/actions";
 
 interface CartContextType {
   products: Product[];
@@ -16,6 +21,9 @@ interface CartContextType {
   removeFromCart: (id: string) => void;
   paymentMethod: string;
   setPaymentMethod: (value: string) => void;
+  address: Address;
+  setAddress: (address: Address) => void;
+  clearAddress: () => void;
 }
 
 interface CartContextProviderProps {
@@ -64,6 +72,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     dispatch(setPaymentMethodAction(value));
   }
 
+  function setAddress(address: Address) {
+    dispatch(setAddressAction(address));
+  }
+
+  function clearAddress() {
+    dispatch(clearAddressAction());
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -73,6 +89,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         removeFromCart,
         paymentMethod,
         setPaymentMethod,
+        address,
+        setAddress,
+        clearAddress,
       }}
     >
       {children}

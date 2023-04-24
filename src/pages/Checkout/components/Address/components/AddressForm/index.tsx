@@ -5,9 +5,12 @@ import {
   Address,
   AddressSchema,
 } from "../../../../../../reducers/address/reducer";
+import { CartContext } from "../../../../../../contexts/CartContext";
+import { useContext } from "react";
 
 export function AddressForm() {
-  const { register, handleSubmit } = useForm<Address>({
+  const { setAddress } = useContext(CartContext);
+  const { register, handleSubmit, watch } = useForm<Address>({
     resolver: zodResolver(AddressSchema),
     defaultValues: {
       zipCode: "",
@@ -20,8 +23,12 @@ export function AddressForm() {
     },
   });
 
+  function onSubmit(data: Address) {
+    setAddress(data);
+  }
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit(onSubmit)}>
       <input placeholder="CEP" {...register("zipCode")} />
       <input placeholder="Rua" {...register("street")} />
       <div className="multiple">

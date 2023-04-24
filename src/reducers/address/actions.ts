@@ -1,13 +1,13 @@
 import { Address } from "./reducer";
 
 export enum ActionTypes {
-  ADD_ADDRESS = "ADD_ADDRESS",
+  SET_ADDRESS = "SET_ADDRESS",
   CLEAR_ADDRESS = "CLEAR_ADDRESS",
 }
 
-export function addAddressAction(newAddress: Address) {
+export function setAddressAction(newAddress: Address) {
   return {
-    type: ActionTypes.ADD_ADDRESS,
+    type: ActionTypes.SET_ADDRESS,
     payload: {
       address: newAddress,
     },
