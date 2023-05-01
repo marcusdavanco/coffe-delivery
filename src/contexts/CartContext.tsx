@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useEffect, useReducer } from "react";
 import {
   addProductAction,
+  clearProductAction,
   removeProductAction,
   updateProductAction,
 } from "../reducers/product/actions";
@@ -24,6 +25,7 @@ interface CartContextType {
   address: Address;
   setAddress: (address: Address) => void;
   clearAddress: () => void;
+  emptyCart: () => void;
 }
 
 interface CartContextProviderProps {
@@ -68,6 +70,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     dispatch(removeProductAction(id));
   }
 
+  function emptyCart() {
+    dispatch(clearProductAction());
+  }
+
   function setPaymentMethod(value: string) {
     dispatch(setPaymentMethodAction(value));
   }
@@ -92,6 +98,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         address,
         setAddress,
         clearAddress,
+        emptyCart,
       }}
     >
       {children}

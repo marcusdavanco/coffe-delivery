@@ -25,6 +25,10 @@ export function productReducer(state: Product[], action: any) {
       return produce(state, (draft) => {
         draft[productIndex].amount = action.payload.amount;
       });
+    case ActionTypes.CLEAR_PRODUCT:
+      return produce(state, (draft) => {
+        draft.splice(productIndex, draft.length + 1);
+      });
 
     case ActionTypes.REMOVE_PRODUCT:
       if (productIndex < 0) {

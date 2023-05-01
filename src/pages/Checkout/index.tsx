@@ -10,10 +10,12 @@ import { AddressForm } from "./components/AddressForm";
 import { FormProvider, useForm } from "react-hook-form";
 import { Address, AddressSchema } from "../../reducers/address/reducer";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
 
 export function Checkout() {
-  const { products, setAddress } = useContext(CartContext);
+  const { products, setAddress, emptyCart } = useContext(CartContext);
   const theme = useTheme();
+  const navigate = useNavigate();
 
   const addressForm = useForm<Address>({
     resolver: zodResolver(AddressSchema),
@@ -30,6 +32,8 @@ export function Checkout() {
 
   function onSubmit(data: Address) {
     setAddress(data);
+    emptyCart();
+    navigate("/success");
   }
 
   const { handleSubmit } = addressForm;

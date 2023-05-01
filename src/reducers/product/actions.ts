@@ -4,6 +4,7 @@ export enum ActionTypes {
   ADD_PRODUCT = "ADD_PRODUCT",
   UPDATE_PRODUCT = "UPDATE_PRODUCT",
   REMOVE_PRODUCT = "REMOVE_PRODUCT",
+  CLEAR_PRODUCT = "CLEAR_PRODUCT",
 }
 
 export function addProductAction(newProduct: Product) {
@@ -30,6 +31,15 @@ export function removeProductAction(id: string) {
     type: ActionTypes.REMOVE_PRODUCT,
     payload: {
       id,
+    },
+  };
+}
+
+export function clearProductAction() {
+  return {
+    type: ActionTypes.CLEAR_PRODUCT,
+    payload: {
+      product: [],
     },
   };
 }
