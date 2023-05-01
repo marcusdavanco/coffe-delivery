@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { SummaryContainer } from "./styles";
-import { CartContext } from "../../../../../../contexts/CartContext";
+import { CartContext } from "../../../../contexts/CartContext";
 
 export function Summary() {
   const { products } = useContext(CartContext);

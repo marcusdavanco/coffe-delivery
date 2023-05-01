@@ -2,10 +2,10 @@ import { ProductRowContainer } from "./styles";
 import { Trash } from "phosphor-react";
 import { useTheme } from "styled-components";
 import { useContext, useEffect, useRef } from "react";
-import { CartContext } from "../../../../../../contexts/CartContext";
-import { AmountSelector } from "../../../../../../components/AmountSelector";
-import { Button } from "../../../../../../components/Button";
-import { Product } from "../../../../../../reducers/product/reducer";
+import { CartContext } from "../../../../contexts/CartContext";
+import { Product } from "../../../../reducers/product/reducer";
+import { AmountSelector } from "../../../../components/AmountSelector";
+import { Button } from "../../../../components/Button";
 
 interface ProductRowProps {
   product: Product;
