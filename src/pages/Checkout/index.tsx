@@ -6,14 +6,37 @@ import { useContext } from "react";
 import { Payment } from "./components/Payment";
 import { ProductRow } from "./components/ProductRow";
 import { Summary } from "./components/Summary";
+import { AddressForm } from "./components/AddressForm";
+import { FormProvider, useForm } from "react-hook-form";
+import { Address, AddressSchema } from "../../reducers/address/reducer";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export function Checkout() {
-  const { products } = useContext(CartContext);
+  const { products, setAddress } = useContext(CartContext);
   const theme = useTheme();
+
+  const addressForm = useForm<Address>({
+    resolver: zodResolver(AddressSchema),
+    defaultValues: {
+      zipCode: "",
+      street: "",
+      number: "",
+      complement: "",
+      neighborhood: "",
+      city: "",
+      state: "",
+    },
+  });
+
+  function onSubmit(data: Address) {
+    setAddress(data);
+  }
+
+  const { handleSubmit } = addressForm;
 
   return (
     <CheckoutContainer>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)} action="">
         <div className="delivery-options">
           <p className="title">Complete seu pedido</p>
           <div className="card address">
@@ -24,21 +47,9 @@ export function Checkout() {
                 <span>Informe o endereço onde deseja receber seu pedido</span>
               </div>
             </div>
-            <div className="inputGroup">
-              <input name="cep" placeholder="CEP" />
-              <input name="street" placeholder="Rua" />
-              <div className="multiple">
-                <input name="number" placeholder="Número" />
-                <div className="inputWrapper">
-                  <input name="complement" placeholder="Complemento" />
-                </div>
-              </div>
-              <div className="multiple">
-                <input name="neighborhood" placeholder="Bairro" />
-                <input name="city" placeholder="Cidade" />
-                <input name="state" placeholder="UF" />
-              </div>
-            </div>
+            <FormProvider {...addressForm}>
+              <AddressForm />
+            </FormProvider>
           </div>
           <Payment />
         </div>

@@ -19,7 +19,7 @@ export interface AddressState {
 
 export function addressReducer(state: AddressState, action: any) {
   switch (action.type) {
-    case ActionTypes.ADD_ADDRESS:
+    case ActionTypes.SET_ADDRESS:
       return {
         ...state,
         address: action.payload.address,
