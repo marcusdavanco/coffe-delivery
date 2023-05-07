@@ -15,7 +15,7 @@
 
   <h3 align='center'>Web</h3>
   <a href="https://coffe-delivery-2lg9.vercel.app/" target="_blank" >
-   <img alt="Preview Screenshot of Coffe Delivery" class="screenshot_image__fGVUW" src=".github/coffe_delivery.png"
+   <img alt="Preview Screenshot of Coffe Delivery" class="screenshot_image__fGVUW" src=".github/coffe-delivery.png"
    width="100%"
    >
   </a>
