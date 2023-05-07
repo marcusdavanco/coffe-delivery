@@ -20,9 +20,9 @@ interface CartContextType {
   addToCart: (data: Product) => void;
   updateCart: (id: string, amount: number) => void;
   removeFromCart: (id: string) => void;
-  paymentMethod: string;
+	paymentMethod: { paymentMethod: string };
   setPaymentMethod: (value: string) => void;
-  address: Address;
+	address: { address: Address };
   setAddress: (address: Address) => void;
   clearAddress: () => void;
   emptyCart: () => void;
