@@ -14,7 +14,7 @@
 <p align="center" width='100%'>
 
   <h3 align='center'>Web</h3>
-  <a href="https://https://coffe-delivery-2lg9.vercel.app/" target="_blank" >
+  <a href="https://coffe-delivery-2lg9.vercel.app/" target="_blank" >
    <img alt="Preview Screenshot of Coffe Delivery" class="screenshot_image__fGVUW" src=".github/coffe_delivery.png"
    width="100%"
    >
@@ -47,7 +47,7 @@ This project used the following technologies:
 
 This project was developed to solve the second challenge of Ignite's React track
 
-- [Access the project finished, online](https://https://coffe-delivery-2lg9.vercel.app/)
+- [Access the project finished, online](https://coffe-delivery-2lg9.vercel.app/)
 
 ## 🔖 Layout
 
