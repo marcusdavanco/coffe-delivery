@@ -1,5 +1,5 @@
 
-<h1 align="center"> Coffe Delivery  </h1>
+<h1 align="center"> Coffee Delivery  </h1>
 
 <p align="center">
 	This web application was built using ReactJS and TypeScript, the project itself was created using Vite, It was styled with StyledComponents and the for the logical part, React-Hook-Form and Zod Validation for the forms, alongside Axios for the reverse geocoding. The state was managed with reducers using React's Context API. 
